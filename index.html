@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificador de Planos de Estudo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 6px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #999;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            background: #0058d1;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0041a8;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Consultar Conteúdos</h1>
+
+        <!--
+            IMPORTANTE:
+            Este formulário envia SEM JSON.
+            Ele envia form-data tradicional.
+            Depois ajusto seu backend para aceitar isso se quiser.
+        -->
+        <form action="http://127.0.0.1:5000/recommend" method="POST">
+
+            <label for="semester">Informe seu semestre:</label>
+            <input type="number" name="semester" id="semester" placeholder="Ex: 3" required min="1">
+
+            <button type="submit">Consultar</button>
+        </form>
+
+        <p class="note">
+            O resultado aparecerá como JSON direto do backend.
+        </p>
+    </div>
+
+</body>
+</html>
